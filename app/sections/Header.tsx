@@ -1,5 +1,3 @@
-// import Image from "next/image";
-
 "use client";
 import Link from "next/link";
 import AnimatedLogo from "@/components/AnimatedLogo";
@@ -14,30 +12,32 @@ export default function Header() {
   return (
     <header className="flex justify-between items-center px-4 py-6 bg-linear-to-r from-sky-400 to-sky-600">
       {/* logo */}
-      <AnimatedLogo />
+      <Link href="/" className="cursor-pointer">
+        <AnimatedLogo />
+      </Link>
       {/* desktop nav */}
       <nav className="hidden md:flex items-center gap-12 text-white mx-auto">
         <Link
           className="text-base tracking-wide transition-colors z-50 hover:text-sky-200"
-          href="#"
+          href="/about"
         >
           About
         </Link>
         <Link
           className="text-base tracking-wide transition-colors z-50 hover:text-sky-200"
-          href="#"
+          href="/services"
         >
           Services
         </Link>
         <Link
           className="text-base tracking-wide transition-colors z-50 hover:text-sky-200"
-          href="#"
+          href="/contact"
         >
           Contact
         </Link>
         <Link
           className="text-base tracking-wide transition-colors z-50 hover:text-sky-200"
-          href="#"
+          href="/blog"
         >
           Blog
         </Link>
@@ -76,33 +76,27 @@ export default function Header() {
             <nav className="flex flex-col md:hidden gap-12 text-lg items-center text-black mt-12">
               <Link
                 className="text-base tracking-wide transition-colors z-50 hover:text-sky-200"
-                href="#"
+                href="/about"
               >
                 About
               </Link>
               <Link
                 className="text-base tracking-wide transition-colors z-50 hover:text-sky-200"
-                href="#"
+                href="/services"
               >
                 Services
               </Link>
               <Link
                 className="text-base tracking-wide transition-colors z-50 hover:text-sky-200"
-                href="#"
+                href="/contact"
               >
                 Contact
               </Link>
               <Link
                 className="text-base tracking-wide transition-colors z-50 hover:text-sky-200"
-                href="#"
+                href="/blog"
               >
                 Blog
-              </Link>
-              <Link
-                className="text-base tracking-wide transition-colors z-50 hover:text-sky-200"
-                href="#"
-              >
-                About
               </Link>
 
               <SignedOut>
