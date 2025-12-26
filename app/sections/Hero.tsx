@@ -1,6 +1,11 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Sparkles } from "lucide-react";
 import Image from "next/image";
+import { motion } from "framer-motion";
+
+const MotionButton = motion(Button);
 
 export default function HeroSection() {
   return (
@@ -30,9 +35,13 @@ export default function HeroSection() {
         </p>
 
         <div className="mt-10 flex items-center justify-center gap-4 animate-fadeInSlow">
-          <Button className="bg-amber-300 text-sky-900 font-semibold px-8 py-6 rounded-full hover:bg-amber-400">
+          <MotionButton
+            className="bg-amber-300 text-sky-900 font-semibold px-8 py-6 rounded-full hover:bg-amber-400"
+            whileHover={{ scale: 1.1 }}
+            transition={{ duration: 0.5 }}
+          >
             Book Appointment
-          </Button>
+          </MotionButton>
 
           <Button className="bg-white/30 backdrop-blur-md text-white border border-white/40 px-8 py-6 rounded-full hover:bg-white/40">
             Learn More
