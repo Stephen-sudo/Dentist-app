@@ -36,16 +36,25 @@ export default function HeroSection() {
 
         <div className="mt-10 flex items-center justify-center gap-4 animate-fadeInSlow">
           <MotionButton
-            className="bg-amber-300 text-sky-900 font-semibold px-8 py-6 rounded-full hover:bg-amber-400"
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.5 }}
+            className="bg-amber-300 text-sky-900 font-semibold px-8 py-6 rounded-full "
+            initial={{ scale: 1 }}
+            whileHover={{
+              scale: 1.1,
+              color: "#f8e112",
+              boxShadow: "0px 0px 8px rgb(248, 225, 18)",
+              textShadow: "0px 0px 8px rgb(248, 225, 18)",
+            }}
+            transition={{ type: "spring", stiffness: 300, delay: 0.1 }}
           >
             Book Appointment
           </MotionButton>
 
-          <Button className="bg-white/30 backdrop-blur-md text-white border border-white/40 px-8 py-6 rounded-full hover:bg-white/40">
+          <MotionButton
+            whileHover={{}}
+            className="bg-white/30 backdrop-blur-md text-white border border-white/40 px-8 py-6 rounded-full hover:bg-white/40"
+          >
             Learn More
-          </Button>
+          </MotionButton>
         </div>
 
         <div className="flex justify-center mt-8 text-amber-300 animate-bounce">
