@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import PageTransition from "@/components/PageTransition";
+import BookAppointment from "@/components/BookAppointment";
 
 export default function AboutPage() {
   return (
@@ -11,11 +12,21 @@ export default function AboutPage() {
         {/* Hero */}
 
         <motion.section
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.4 }}
+          variants={{
+            hidden: { opacity: 0, y: 30 },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: {
+                duration: 1,
+                ease: "easeInOut",
+              },
+            },
+          }}
           className="bg-sky-50 py-20 text-center px-6"
-          initial={{ scale: 0, opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <h1 className="text-4xl md:text-5xl font-bold text-sky-700">
             About Our Dental Clinic
@@ -47,12 +58,13 @@ export default function AboutPage() {
         <motion.section
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.3 }}
           variants={{
             hidden: {},
             visible: {
               transition: {
-                staggerChildren: 0.2,
+                staggerChildren: 0.3,
+                delayChildren: 0.2,
               },
             },
           }}
@@ -87,33 +99,13 @@ export default function AboutPage() {
           </motion.div>
         </motion.section>
 
-        {/* Values */}
-        <section className="bg-gray-50 py-20">
-          <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-8">
-            {[
-              "Patient-first care",
-              "Modern technology",
-              "Transparent pricing",
-            ].map((value) => (
-              <div
-                key={value}
-                className="bg-white p-6 rounded-xl shadow-sm text-center"
-              >
-                <p className="font-semibold text-gray-800">{value}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
         {/* CTA */}
         <section className="py-20 text-center">
           <h2 className="text-2xl font-semibold mb-6">
             Ready to Book Your Appointment?
           </h2>
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button className="rounded-full px-8 py-4">
-              Book an Appointment
-            </Button>
+            <BookAppointment />
           </motion.div>
         </section>
       </main>
