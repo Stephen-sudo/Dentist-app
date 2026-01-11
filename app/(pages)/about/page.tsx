@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import PageTransition from "@/components/PageTransition";
 import BookAppointment from "@/components/BookAppointment";
