@@ -1,7 +1,9 @@
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -40,8 +42,9 @@ const BookAppointment = () => {
 
   useEffect(() => {
     // Reset selected time when date changes
+
     setSelectedTime(null);
-  }, []);
+  }, [date]);
 
   const isPastDate = (day: Date) => {
     return day < new Date();
@@ -157,14 +160,26 @@ const BookAppointment = () => {
             </div>
 
             {/* Confirm Button */}
-            {selectedTime && date && (
-              <div className="mt-4 pt-4 border-t">
-                <Button className="w-full py-3 text-base font-semibold bg-blue-500 hover:bg-blue-600">
-                  Confirm Appointment for {date.toLocaleDateString()} at{" "}
-                  {selectedTime}
+
+            <DialogFooter className="sm:justify-end mt-4 border-t pt-4">
+              <DialogClose asChild>
+                <Button
+                  type="button"
+                  variant="secondary"
+                  className="border hover:border-blue-500 text-blue-500"
+                >
+                  Close
                 </Button>
-              </div>
-            )}
+              </DialogClose>
+              <Button
+                type="submit"
+                variant="destructive"
+                className="border hover:border-red-500 shadow-md"
+                disabled={!(selectedTime && date)}
+              >
+                Confirm
+              </Button>
+            </DialogFooter>
           </div>
         </DialogContent>
       </Dialog>
