@@ -3,6 +3,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import PageTransition from "@/components/PageTransition";
 import BookAppointment from "@/components/BookAppointment";
+import DentistSlider from "@/components/DentistSlider";
 
 export default function AboutPage() {
   return (
@@ -96,6 +97,15 @@ export default function AboutPage() {
               className="rounded-xl shadow-md"
             />
           </motion.div>
+        </motion.section>
+
+        <motion.section className="max-w-6xl mx-auto px-6 py-20 flex items-center">
+          <div className="items-center" >
+            <h2 className="text-2xl font-semibold mb-4">Meet the team</h2>
+            <div>
+            <DentistSlider />
+            </div>
+          </div>
         </motion.section>
 
         {/* CTA */}
